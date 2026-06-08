@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>Codex AI Showcase</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{overflow:hidden;background:#080816;font-family:Inter,sans-serif;width:1920px;height:1080px}
+#bgCanvas{position:fixed;top:0;left:0;width:1920px;height:1080px;z-index:0}
+.scene{position:fixed;top:0;left:0;width:1920px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;pointer-events:none;opacity:0}
+.h-icon{width:120px;height:120px;background:linear-gradient(135deg,#6c5ce7,#fd79a8);border-radius:32px;display:flex;align-items:center;justify-content:center;font-size:48px;color:#fff;font-weight:900;transform:scale(0) rotate(-25deg);filter:drop-shadow(0 0 40px rgba(108,92,231,.5));margin-bottom:24px}
+.h-title{font-size:76px;font-weight:900;font-style:italic;background:linear-gradient(135deg,#6c5ce7,#00cec9,#fd79a8,#ffeaa7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-2px;opacity:0;transform:translateY(40px)}
+.h-sub{font-size:22px;font-weight:200;color:rgba(255,255,255,.35);letter-spacing:10px;text-transform:uppercase;margin-top:18px;opacity:0;transform:translateY(20px)}
+.h-stats{display:flex;gap:50px;margin-top:40px;opacity:0}
+.h-s{display:flex;flex-direction:column;align-items:center;gap:6px}
+.h-s .n{font-size:34px;font-weight:700;font-family:JetBrains Mono,monospace}
+.h-s .l{font-size:12px;font-weight:300;color:rgba(255,255,255,.3);letter-spacing:3px;text-transform:uppercase}
+.s2-title{font-size:44px;font-weight:700;color:#fff;margin-bottom:50px;letter-spacing:-1px;opacity:0;transform:translateY(30px)}
+.s2-title em{color:#6c5ce7;font-style:italic}
+.c-grid{display:grid;grid-template-columns:repeat(4,270px);gap:28px}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:36px 28px;display:flex;flex-direction:column;align-items:center;gap:14px;backdrop-filter:blur(10px);opacity:0;transform:translateY(50px)}
+.ci{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.ct{font-size:17px;font-weight:700;color:#fff}
+.cd{font-size:12px;font-weight:300;color:rgba(255,255,255,.4);text-align:center;line-height:1.6}
+.cb{width:100%;height:4px;background:rgba(255,255,255,.06);border-radius:2px;margin-top:6px;overflow:hidden}
+.bf{height:100%;border-radius:2px;width:0%}
+.s3-title{font-size:44px;font-weight:700;color:#fff;margin-bottom:40px;letter-spacing:-1px;opacity:0;transform:translateY(30px)}
+.s3-title em{color:#00cec9;font-style:italic}
+.d-wrap{display:flex;gap:50px;align-items:center}
+.d-chart{width:480px;height:280px;position:relative;opacity:0;transform:translateX(-40px)}
+.bg{position:absolute;bottom:0;display:flex;gap:4px;align-items:flex-end;left:20px}
+.b{width:34px;border-radius:6px 6px 0 0;height:0}
+.d-info{opacity:0;transform:translateX(40px)}
+.di{display:flex;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.di .dt{font-family:JetBrains Mono,monospace;font-size:15px;color:rgba(255,255,255,.25);min-width:70px}
+.di .dd{font-size:15px;color:rgba(255,255,255,.65)}
+.di .dp{font-family:JetBrains Mono,monospace;font-weight:700;margin-left:auto}
+.s4-title{font-size:44px;font-weight:700;color:#fff;margin-bottom:36px;letter-spacing:-1px;opacity:0;transform:translateY(30px)}
+.s4-title em{color:#fd79a8;font-style:italic}
+.c-block{background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px 32px;font-family:JetBrains Mono,monospace;font-size:16px;line-height:1.9;min-width:680px;backdrop-filter:blur(10px);opacity:0;transform:translateY(40px)}
+.cl{opacity:0}.cl .kw{color:#6c5ce7}.cl .s{color:#00cec9}.cl .fn{color:#fd79a8}.cl .n{color:#ffeaa7}.cl .cm{color:rgba(255,255,255,.2)}
+.cur{display:inline-block;width:2px;height:20px;background:#6c5ce7;margin-left:4px;animation:blink .8s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.f-title{font-size:68px;font-weight:900;font-style:italic;background:linear-gradient(135deg,#6c5ce7,#00cec9,#fd79a8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0;transform:scale(.8)}
+.f-sub{font-size:18px;font-weight:200;color:rgba(255,255,255,.25);letter-spacing:5px;margin-top:20px;opacity:0;transform:translateY(20px)}
+.sh{position:fixed;z-index:3;pointer-events:none;border-radius:50%;opacity:0}
+.sh1{width:280px;height:280px;background:radial-gradient(circle,rgba(108,92,231,.12),transparent);top:10%;left:5%}
+.sh2{width:380px;height:380px;background:radial-gradient(circle,rgba(0,206,201,.08),transparent);bottom:5%;right:8%}
+.sh3{width:180px;height:180px;background:radial-gradient(circle,rgba(253,121,168,.1),transparent);top:50%;right:12%}
+</style>
+</head>
+<body>
+<canvas id="bgCanvas"></canvas>
+<div class="sh sh1" id="sh1"></div>
+<div class="sh sh2" id="sh2"></div>
+<div class="sh sh3" id="sh3"></div>
+<div class="scene" id="s1">
+<div class="h-icon" id="hi">&lt;/&gt;</div>
+<div class="h-title" id="ht">Codex 视频引擎</div>
+<div class="h-sub" id="hs">60 FPS · Full HD · AI Powered</div>
+<div class="h-stats" id="hst">
+<div class="h-s"><div class="n" id="st1">0</div><div class="l">Scenes</div></div>
+<div class="h-s"><div class="n" id="st2">0</div><div class="l">Particles</div></div>
+<div class="h-s"><div class="n" id="st3">0</div><div class="l">FPS</div></div>
+</div>
+</div>
+<div class="scene" id="s2">
+<div class="s2-title" id="s2t"><em>Core</em> Capabilities</div>
+<div class="c-grid" id="cg">
+<div class="card"><div class="ci" style="background:rgba(108,92,231,.2);color:#6c5ce7">&#10022;</div><div class="ct">Animation</div><div class="cd">Fluid CSS transforms<br>and GSAP-powered FX</div><div class="cb"><div class="bf" style="background:#6c5ce7"></div></div></div>
+<div class="card"><div class="ci" style="background:rgba(0,206,201,.2);color:#00cec9">&#9672;</div><div class="ct">Particles</div><div class="cd">Real-time particle<br>systems with connections</div><div class="cb"><div class="bf" style="background:#00cec9"></div></div></div>
+<div class="card"><div class="ci" style="background:rgba(253,121,168,.2);color:#fd79a8">&#9635;</div><div class="ct">Typography</div><div class="cd">Kinetic type with<br>variable fonts and glow</div><div class="cb"><div class="bf" style="background:#fd79a8"></div></div></div>
+<div class="card"><div class="ci" style="background:rgba(255,234,167,.2);color:#ffeaa7">&#9673;</div><div class="ct">Data Viz</div><div class="cd">Animated charts and<br>live infographics</div><div class="cb"><div class="bf" style="background:#ffeaa7"></div></div></div>
+</div>
+</div>
+<div class="scene" id="s3">
+<div class="s3-title" id="s3t">&#10216; <em>Performance</em> &#10217;</div>
+<div class="d-wrap">
+<div class="d-chart" id="dc">
+<div class="bg" id="bg"><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div></div>
+</div>
+<div class="d-info" id="di">
+<div class="di"><div class="dt">FPS</div><div class="dd">Frame Rate Target</div><div class="dp" style="color:#6c5ce7">60</div></div>
+<div class="di"><div class="dt">RES</div><div class="dd">Video Resolution</div><div class="dp" style="color:#00cec9">1920x1080</div></div>
+<div class="di"><div class="dt">CODEC</div><div class="dd">Encoding Format</div><div class="dp" style="color:#fd79a8">WebM VP9</div></div>
+<div class="di"><div class="dt">DUR</div><div class="dd">Total Duration</div><div class="dp" style="color:#ffeaa7">12 sec</div></div>
+</div>
+</div>
+</div>
+<div class="scene" id="s4">
+<div class="s4-title" id="s4t">&#124; <em>Source</em> &#124;</div>
+<div class="c-block" id="cb">
+<div class="cl"><span class="kw">import</span> { <span class="fn">render</span> } <span class="kw">from</span> <span class="s">"codex"</span></div>
+<div class="cl"> </div>
+<div class="cl"><span class="kw">const</span> video = <span class="kw">await</span> <span class="fn">createVideo</span>({</div>
+<div class="cl">  scenes: [<span class="n">5</span>],</div>
+<div class="cl">  fps: <span class="n">60</span>,</div>
+<div class="cl">  width: <span class="n">1920</span>,</div>
+<div class="cl">  height: <span class="n">1080</span>,</div>
+<div class="cl">  style: <span class="s">"cosmic"</span>,</div>
+<div class="cl">  particles: <span class="n">120</span></div>
+<div class="cl">})</div>
+<div class="cl"> </div>
+<div class="cl"><span class="kw">await</span> <span class="fn">video</span>.<span class="fn">render</span>() <span class="cm">// 60fps</span><span class="cur"></span></div>
+</div>
+</div>
+<div class="scene" id="s5">
+<div class="f-title" id="ft">Built with Codex</div>
+<div class="f-sub" id="fs">AI-Powered Video Generation · 2026</div>
+</div>
+<script>
+const W=1920,H=1080;
+const canvas=document.getElementById("bgCanvas"),ctx=canvas.getContext("2d");
+canvas.width=W;canvas.height=H;
+const clrs=["#6c5ce7","#00cec9","#fd79a8","#ffeaa7","#a29bfe","#55efc4"];
+class Pt{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.s=Math.random()*3+1;this.sx=(Math.random()-.5)*.7;this.sy=(Math.random()-.5)*.7;this.c=clrs[Math.floor(Math.random()*clrs.length)];this.o=Math.random()*.4+.1;this.p=Math.random()*6.28;this.ps=Math.random()*.03+.005}upd(){this.x+=this.sx;this.y+=this.sy;this.p+=this.ps;if(this.x<-10||this.x>W+10)this.sx*=-1;if(this.y<-10||this.y>H+10)this.sy*=-1}dr(){const a=this.o*(.6+.4*Math.sin(this.p));ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,6.28);ctx.fillStyle=this.c;ctx.globalAlpha=a;ctx.fill();if(this.s>1.5){ctx.beginPath();ctx.arc(this.x,this.y,this.s*2.5,0,6.28);ctx.globalAlpha=a*.15;ctx.fill()}}}
+let pts=[];for(let i=0;i<120;i++)pts.push(new Pt);
+function drBg(){const g=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,900);g.addColorStop(0,"#14142e");g.addColorStop(.5,"#0d0d22");g.addColorStop(1,"#080816");ctx.fillStyle=g;ctx.fillRect(0,0,W,H)}
+function drCon(){ctx.lineWidth=.4;for(let i=0;i<pts.length;i+=3)for(let j=i+1;j<Math.min(i+4,pts.length);j++){const a=pts[i],b=pts[j];const dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);if(d<180){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle="#6c5ce7";ctx.globalAlpha=.08*(1-d/180);ctx.stroke()}}}
+function eoc(t){return 1-Math.pow(1-t,3)}
+function eob(t){const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)}
+function clp(v,a,b){return Math.min(b,Math.max(a,v))}
+const D=12;let st=null,renderFrameMode=false;
+document.querySelectorAll(".scene").forEach(s=>s.style.display="flex");
+function renderFrame(time){
+  var e=Math.min(time,D);
+  drBg();for(var i=0;i<pts.length;i++){pts[i].upd();pts[i].dr()}ctx.globalAlpha=1;
+  with(Math){
+    var sh1=document.getElementById("sh1");sh1.style.transform="translate("+(30*sin(e*.3))+"px,"+(20*cos(e*.4))+"px) scale("+(1+.15*sin(e*.5))+")";sh1.style.opacity=.5+.3*sin(e*.5);
+    var sh2=document.getElementById("sh2");sh2.style.transform="translate("+(20*sin(e*.2+2))+"px,"+(30*cos(e*.3+1))+"px) scale("+(1+.1*sin(e*.4+1))+")";sh2.style.opacity=.4+.2*sin(e*.4+1);
+    var sh3=document.getElementById("sh3");sh3.style.transform="translate("+(40*sin(e*.6+3))+"px,"+(15*cos(e*.5+2))+"px)";sh3.style.opacity=.3+.2*sin(e*.6)
+  }
+  // S1
+  var se1=document.getElementById("s1");
+  if(e<.5){se1.style.opacity=eoc(e/.5)}else if(e<2.8){se1.style.opacity=1}else{se1.style.opacity=Math.max(0,1-eoc(clp((e-2.8)/.4,0,1)))}
+  var hi=document.getElementById("hi");
+  if(e>=.2&&e<.8){var p1=clp((e-.2)/.6,0,1);hi.style.transform="scale("+eob(p1)+") rotate("+(-25*(1-eob(p1)))+"deg)";hi.style.opacity=1}else if(e>=.8){hi.style.transform="scale(1) rotate(0deg)"}
+  var ht=document.getElementById("ht");
+  if(e>=.5&&e<1.4){var p2=clp((e-.5)/.9,0,1),ep2=eoc(p2);ht.style.opacity=ep2;ht.style.transform="translateY("+(40*(1-ep2))+"px)"}else if(e>=1.4){ht.style.opacity=1}else{ht.style.opacity=0}
+  var hs=document.getElementById("hs");
+  if(e>=1.0&&e<1.8){var p3=clp((e-1.0)/.8,0,1),ep3=eoc(p3);hs.style.opacity=ep3;hs.style.transform="translateY("+(20*(1-ep3))+")"}else if(e>=1.8){hs.style.opacity=1}else{hs.style.opacity=0}
+  var hst=document.getElementById("hst");
+  if(e>=1.5&&e<2.5){var p4=clp((e-1.5)/1,0,1),ep4=eoc(p4);hst.style.opacity=ep4;document.getElementById("st1").textContent=Math.floor(ep4*5);document.getElementById("st2").textContent=Math.floor(ep4*120);document.getElementById("st3").textContent=Math.floor(ep4*60)}
+  else if(e>=2.5){hst.style.opacity=1;document.getElementById("st1").textContent="5";document.getElementById("st2").textContent="120";document.getElementById("st3").textContent="60"}
+  // S2
+  var se2=document.getElementById("s2");
+  if(e>=2.9&&e<3.3){se2.style.opacity=eoc((e-2.9)/.4)}else if(e>=3.3&&e<5.0){se2.style.opacity=1}else if(e>=5.0&&e<5.5){se2.style.opacity=Math.max(0,1-eoc((e-5.0)/.5))}else if(e<2.9){se2.style.opacity=0}
+  var s2t=document.getElementById("s2t");
+  if(e>=3.1&&e<3.7){var p5=clp((e-3.1)/.6,0,1),ep5=eoc(p5);s2t.style.opacity=ep5;s2t.style.transform="translateY("+(30*(1-ep5))+"px)"}else if(e>=3.7&&e<5.0){s2t.style.opacity=1}else{s2t.style.opacity=0}
+  var cards=document.querySelectorAll(".card");
+  for(var ci=0;ci<cards.length;ci++){var c=cards[ci];var cs=3.2+ci*.12,ce=cs+.35;if(e>=cs&&e<ce){var cp=clp((e-cs)/.35,0,1),cep=eob(cp);c.style.opacity=cep;c.style.transform="translateY("+(50*(1-cep))+"px)";c.querySelector(".bf").style.width=(cep*100)+"%"}else if(e>=ce&&e<5.0){c.style.opacity=1;c.style.transform="translateY(0)";c.querySelector(".bf").style.width="100%"}else{c.style.opacity=0}}
+  // S3
+  var se3=document.getElementById("s3");
+  if(e>=5.0&&e<5.4){se3.style.opacity=eoc((e-5.0)/.4)}else if(e>=5.4&&e<7.1){se3.style.opacity=1}else if(e>=7.1&&e<7.6){se3.style.opacity=Math.max(0,1-eoc((e-7.1)/.5))}else if(e<5.0){se3.style.opacity=0}
+  var s3t=document.getElementById("s3t");
+  if(e>=5.2&&e<5.8){var p6=clp((e-5.2)/.6,0,1),ep6=eoc(p6);s3t.style.opacity=ep6;s3t.style.transform="translateY("+(30*(1-ep6))+"px)"}else if(e>=5.8&&e<7.1){s3t.style.opacity=1}else{s3t.style.opacity=0}
+  var bh=[180,240,130,280,200,260,150];var dc=document.getElementById("dc");var bars=document.querySelectorAll("#bg .b");var di2=document.getElementById("di");
+  if(e>=5.3&&e<6.0){var p7=clp((e-5.3)/.7,0,1),ep7=eoc(p7);dc.style.opacity=ep7;dc.style.transform="translateX("+(-40*(1-ep7))+"px)";for(var bi=0;bi<bars.length;bi++){bars[bi].style.height=(bh[bi]*ep7)+"px"}}
+  else if(e>=6.0){dc.style.opacity=1;dc.style.transform="translateX(0)";for(var bi=0;bi<bars.length;bi++){bars[bi].style.height=bh[bi]+"px"}}
+  if(e>=5.5&&e<6.2){var p8=clp((e-5.5)/.7,0,1),ep8=eoc(p8);di2.style.opacity=ep8;di2.style.transform="translateX("+(40*(1-ep8))+"px)"}
+  else if(e>=6.2){di2.style.opacity=1;di2.style.transform="translateX(0)"}
+  // S4
+  var se4=document.getElementById("s4");
+  if(e>=7.1&&e<7.5){se4.style.opacity=eoc((e-7.1)/.4)}else if(e>=7.5&&e<9.2){se4.style.opacity=1}else if(e>=9.2&&e<9.7){se4.style.opacity=Math.max(0,1-eoc((e-9.2)/.5))}else if(e<7.1){se4.style.opacity=0}
+  var s4t=document.getElementById("s4t");
+  if(e>=7.3&&e<7.9){var p9=clp((e-7.3)/.6,0,1),ep9=eoc(p9);s4t.style.opacity=ep9;s4t.style.transform="translateY("+(30*(1-ep9))+"px)"}else if(e>=7.9&&e<9.2){s4t.style.opacity=1}else{s4t.style.opacity=0}
+  var cb=document.getElementById("cb");var cls=document.querySelectorAll(".cl");
+  if(e>=7.5&&e<8.3){var p10=clp((e-7.5)/.8,0,1),ep10=eoc(p10);cb.style.opacity=1;cb.style.transform="translateY("+(40*(1-ep10))+"px)";for(var li=0;li<cls.length;li++){if(p10>li*.07){var lp=clp((p10-li*.07)/.08,0,1);cls[li].style.opacity=eoc(lp)}}}
+  else if(e>=8.3&&e<9.2){cb.style.opacity=1;cb.style.transform="translateY(0)";for(var li=0;li<cls.length;li++){cls[li].style.opacity=1}}
+  // S5
+  var se5=document.getElementById("s5");
+  if(e>=9.2&&e<9.7){se5.style.opacity=eoc((e-9.2)/.5)}else if(e>=9.7&&e<10.5){se5.style.opacity=1}else if(e>=10.5&&e<12){se5.style.opacity=Math.max(0,1-eoc((e-10.5)/1.5))}else{se5.style.opacity=0}
+  var ft=document.getElementById("ft");
+  if(e>=9.4&&e<10.2){var p11=clp((e-9.4)/.8,0,1),ep11=eob(p11);ft.style.opacity=ep11;ft.style.transform="scale("+(.8+.2*ep11)+")"}
+  else if(e>=10.2){ft.style.opacity=1;ft.style.transform="scale(1)"}else{ft.style.opacity=0}
+  var fs=document.getElementById("fs");
+  if(e>=10.0&&e<10.6){var p12=clp((e-10)/.6,0,1),ep12=eoc(p12);fs.style.opacity=ep12;fs.style.transform="translateY("+(20*(1-ep12))+"px)"}
+  else if(e>=10.6){fs.style.opacity=1}else{fs.style.opacity=0}
+}
+function anim(ts){if(!st)st=ts;var e=(ts-st)/1000;renderFrame(e);if(e<D)requestAnimationFrame(anim)}
+</script>
+</body>
+</html>

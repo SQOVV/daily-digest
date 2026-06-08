@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Digest Dashboard</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --orange: #d29922;
+    --red: #f85149;
+    --radius: 8px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px;
+    line-height: 1.6;
+  }
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+  }
+  .header h1 { font-size: 24px; font-weight: 600; }
+  .header .subtitle { color: var(--text-dim); font-size: 14px; }
+  .actions { display: flex; gap: 8px; align-items: center; }
+  .btn {
+    padding: 8px 20px; border-radius: 6px; border: 1px solid var(--border);
+    cursor: pointer; font-size: 14px; font-weight: 500;
+    transition: all .15s; background: #21262d; color: var(--text);
+  }
+  .btn:hover { background: #30363d; border-color: #8b949e; }
+  .btn-primary {
+    background: #238636; border-color: #2ea043; color: #fff;
+  }
+  .btn-primary:hover { background: #2ea043; }
+  .btn-danger {
+    background: #da3633; border-color: #f85149; color: #fff;
+  }
+  .btn-danger:hover { background: #f85149; }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .status-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; background: var(--card); border-radius: var(--radius);
+    border: 1px solid var(--border); margin-bottom: 16px; font-size: 13px;
+  }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%; display: inline-block;
+  }
+  .status-dot.ok { background: var(--green); }
+  .status-dot.loading { background: var(--orange); animation: pulse 1s infinite; }
+  .status-dot.error { background: var(--red); }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .layout { display: flex; gap: 20px; }
+  .main { flex: 1; min-width: 0; }
+  .sidebar { width: 260px; flex-shrink: 0; }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px; margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 14px; font-weight: 600; margin-bottom: 8px;
+    color: var(--text-dim); text-transform: uppercase; letter-spacing: .5px;
+  }
+  .digest-content {
+    font-size: 15px; line-height: 1.7; overflow-wrap: break-word;
+  }
+  .digest-content h2 { font-size: 20px; margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .digest-content h3 { font-size: 16px; margin: 16px 0 8px; }
+  .digest-content a { color: var(--accent); }
+  .digest-content code {
+    background: rgba(88,166,255,.15); padding: 2px 6px; border-radius: 4px;
+    font-size: 13px; font-family: "SF Mono", "Fira Code", monospace;
+  }
+  .digest-content pre {
+    background: #0d1117; padding: 12px 16px; border-radius: 6px;
+    border: 1px solid var(--border); overflow-x: auto; margin: 12px 0;
+  }
+  .digest-content pre code { background: none; padding: 0; }
+  .digest-content table {
+    border-collapse: collapse; margin: 12px 0; width: 100%;
+  }
+  .digest-content th, .digest-content td {
+    border: 1px solid var(--border); padding: 6px 12px; text-align: left;
+  }
+  .digest-content th { background: #161b22; font-weight: 600; }
+  .digest-content blockquote {
+    border-left: 3px solid var(--border); padding-left: 12px;
+    color: var(--text-dim); margin: 12px 0;
+  }
+  .digest-content hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .file-list { list-style: none; }
+  .file-list li {
+    padding: 8px 12px; border-radius: 4px; cursor: pointer;
+    font-size: 13px; transition: background .1s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .file-list li:hover { background: #21262d; }
+  .file-list li.active { background: #1f3a5f; color: var(--accent); }
+  .file-list li .date { color: var(--text-dim); font-size: 11px; margin-left: 4px; }
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+  .toast {
+    position: fixed; bottom: 24px; right: 24px;
+    padding: 12px 20px; border-radius: 6px; font-size: 14px;
+    z-index: 999; transition: all .3s; opacity: 0; transform: translateY(20px);
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast.success { background: #238636; color: #fff; }
+  .toast.error { background: #da3633; color: #fff; }
+  .toast.info { background: #1f3a5f; color: var(--accent); }
+  @media (max-width: 768px) {
+    .layout { flex-direction: column-reverse; }
+    .sidebar { width: 100%; }
+  }
+  .markdown-body em { color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Daily Digest Dashboard</h1>
+    <div class="subtitle" id="subtitle">Multi-source tech news aggregator</div>
+  </div>
+  <div class="actions">
+    <button class="btn" onclick="refreshList()">Refresh List</button>
+    <button class="btn btn-primary" id="genBtn" onclick="generateDigest()">Generate Now</button>
+    <a class="btn" href="http://127.0.0.1:8080/api/latest" target="_blank">API Raw</a>
+  </div>
+</div>
+
+<div class="status-bar" id="statusBar">
+  <span class="status-dot ok" id="statusDot"></span>
+  <span id="statusText">Ready</span>
+  <span style="flex:1"></span>
+  <span id="statusTime" style="color:var(--text-dim);font-size:12px"></span>
+</div>
+
+<div class="layout">
+  <div class="main">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h3 style="margin:0">Digest Preview</h3>
+        <span id="fileLabel" style="font-size:12px;color:var(--text-dim)"></span>
+      </div>
+      <div id="digestContent" class="digest-content">
+        <div class="empty-state">
+          <div class="icon">??</div>
+          <p>No digest generated yet</p>
+          <p style="font-size:13px;margin-top:8px">Click "Generate Now" to create today's digest</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <h3>Past Digests</h3>
+      <ul class="file-list" id="fileList">
+        <li style="color:var(--text-dim);font-size:13px;padding:8px 12px">Loading...</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Quick Info</h3>
+      <div id="quickInfo" style="font-size:13px;color:var(--text-dim)">
+        <div id="infoSources">Sources: GitHub Search, GitHub Trending, Hacker News</div>
+        <div id="infoCount" style="margin-top:4px">?</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API = "";
+let currentFile = null;
+
+function $(id) { return document.getElementById(id); }
+
+function showToast(msg, type) {
+  const t = $("toast");
+  t.textContent = msg;
+  t.className = "toast " + type + " show";
+  clearTimeout(t._hide);
+  t._hide = setTimeout(() => t.className = "toast", 3000);
+}
+
+function setStatus(text, type) {
+  $("statusText").textContent = text;
+  const dot = $("statusDot");
+  dot.className = "status-dot " + (type || "ok");
+  $("statusTime").textContent = new Date().toLocaleTimeString();
+}
+
+function mdToHtml(md) {
+  if (!md) return '<div class="empty-state"><div class="icon">??</div><p>No content</p></div>';
+  let h = md
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/^######\s+(.+)$/gm, "<h6>$1</h6>")
+    .replace(/^#####\s+(.+)$/gm, "<h5>$1</h5>")
+    .replace(/^####\s+(.+)$/gm, "<h4>$1</h4>")
+    .replace(/^###\s+(.+)$/gm, "<h3>$1</h3>")
+    .replace(/^##\s+(.+)$/gm, "<h2>$1</h2>")
+    .replace(/^#\s+(.+)$/gm, "<h1>$1</h1>")
+    .replace(/^> (.*)$/gm, "<blockquote><p>$1</p></blockquote>")
+    .replace(/^---$/gm, "<hr>")
+    .replace(/```(\w*)\n([\s\S]*?)```/g, (m, lang, code) => {
+      return "<pre><code>" + code.trim() + "</code></pre>";
+    })
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+    .replace(/^(\d+)\.\s+(.+)$/gm, "<p><strong>$1.</strong> $2</p>")
+    .replace(/^\|(.+)\|$/gm, (m, row) => {
+      const cells = row.split("|").map(c => c.trim()).filter(c => c);
+      if (cells.every(c => /^[-]+$/.test(c))) return "";
+      return "<tr>" + cells.map(c => "<td>" + c + "</td>").join("") + "</tr>";
+    })
+    .replace(/<tr>.*?<\/tr>/g, (m) => {
+      if (m.includes("---") || m.includes("---")) return "";
+      return m;
+    })
+    .replace(/\n\n/g, "</p><p>")
+    .replace(/\n/g, "<br>");
+  return "<p>" + h + "</p>";
+}
+
+async function loadLatest() {
+  setStatus("Loading...", "loading");
+  try {
+    const r = await fetch(API + "/api/latest");
+    const data = await r.json();
+    if (data.ok && data.exists && data.content) {
+      currentFile = data.file;
+      $("digestContent").innerHTML = mdToHtml(data.content);
+      $("fileLabel").textContent = data.file;
+      $("infoCount").textContent = "Latest: " + data.file;
+      setStatus("Loaded " + data.file, "ok");
+    } else {
+      $("digestContent").innerHTML = '<div class="empty-state"><div class="icon">??</div><p>No digest yet</p><p style="font-size:13px;margin-top:8px">Click "Generate Now" to create today\'s digest</p></div>';
+      $("fileLabel").textContent = "";
+      setStatus("No digest found", "ok");
+    }
+  } catch (e) {
+    $("digestContent").innerHTML = '<div class="empty-state"><div class="icon">??</div><p>Cannot connect to server</p><p style="font-size:13px;margin-top:4px;color:#f85149">' + e.message + '</p></div>';
+    setStatus("Connection error", "error");
+  }
+}
+
+async function refreshList() {
+  try {
+    const r = await fetch(API + "/api/list");
+    const data = await r.json();
+    const list = $("fileList");
+    if (data.ok && data.files && data.files.length) {
+      list.innerHTML = data.files.map(f =>
+        '<li class="' + (f === currentFile ? "active" : "") + '" onclick="loadFile(\'' + f + '\')">' +
+        f.replace(/^daily-digest-/, "").replace(/\.md$/, "") +
+        ' <span class="date">digest</span></li>'
+      ).join("");
+    } else {
+      list.innerHTML = '<li style="color:var(--text-dim);font-size:13px;padding:8px 12px">No digests yet</li>';
+    }
+  } catch (e) {
+    $("fileList").innerHTML = '<li style="color:#f85149;font-size:13px;padding:8px 12px">Failed to load list</li>';
+  }
+}
+
+async function loadFile(fname) {
+  setStatus("Loading " + fname + "...", "loading");
+  try {
+    const r = await fetch(API + "/api/digest/" + fname);
+    const data = await r.json();
+    if (data.ok && data.content) {
+      currentFile = fname;
+      $("digestContent").innerHTML = mdToHtml(data.content);
+      $("fileLabel").textContent = fname;
+      setStatus("Loaded " + fname, "ok");
+      refreshList();
+    }
+  } catch (e) {
+    setStatus("Error loading file", "error");
+  }
+}
+
+async function generateDigest() {
+  const btn = $("genBtn");
+  btn.disabled = true;
+  btn.textContent = "Generating...";
+  setStatus("Generating digest...", "loading");
+  showToast("Digest generation started...", "info");
+  try {
+    const r = await fetch(API + "/api/generate", { method: "POST" });
+    const data = await r.json();
+    if (data.ok) {
+      showToast("Generation triggered! Reloading in 10s...", "success");
+      setStatus("Generation started, waiting...", "loading");
+      setTimeout(async () => {
+        await loadLatest();
+        await refreshList();
+        btn.disabled = false;
+        btn.textContent = "Generate Now";
+        setStatus("Digest ready", "ok");
+      }, 10000);
+    } else {
+      showToast("Generation failed", "error");
+      btn.disabled = false;
+      btn.textContent = "Generate Now";
+      setStatus("Generation failed", "error");
+    }
+  } catch (e) {
+    showToast("Error: " + e.message, "error");
+    btn.disabled = false;
+    btn.textContent = "Generate Now";
+    setStatus("Error", "error");
+  }
+}
+
+// Poll for generation completion
+let pollTimer = null;
+function startPolling() {
+  let attempts = 0;
+  pollTimer = setInterval(async () => {
+    attempts++;
+    try {
+      const r = await fetch(API + "/api/latest");
+      const data = await r.json();
+      if (data.ok && data.exists && data.content) {
+        const btn = $("genBtn");
+        if (btn.disabled) {
+          await loadLatest();
+          await refreshList();
+          btn.disabled = false;
+          btn.textContent = "Generate Now";
+          setStatus("Digest updated", "ok");
+          showToast("Digest ready!", "success");
+          clearInterval(pollTimer);
+        }
+      }
+    } catch(e) {}
+    if (attempts > 60) clearInterval(pollTimer);
+  }, 2000);
+}
+
+// Override generate to also start polling
+const _origGen = generateDigest;
+generateDigest = async function() {
+  await _origGen();
+  startPolling();
+};
+
+loadLatest();
+refreshList();
+</script>
+</body>
+</html>

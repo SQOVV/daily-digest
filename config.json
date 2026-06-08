@@ -1,0 +1,25 @@
+﻿{
+  "title": "我的每日情报",
+  "data_sources": {
+    "github_trending": true,
+    "github_search": true,
+    "hacker_news": true
+  },
+  "github": {
+    "max_repos": 10,
+    "days_lookback": 7,
+    "min_stars": 50,
+    "language_filter": ""
+  },
+  "hacker_news": {
+    "max_posts": 5
+  },
+  "output": {
+    "dir": ".",
+    "filename_prefix": "daily-digest-"
+  },
+  "appearance": {
+    "theme": "dark",
+    "language": "zh"
+  }
+}
