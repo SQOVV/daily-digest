@@ -6,75 +6,75 @@
 
 ## Hot GitHub Repos
 
-1. ### [cpaczek/skylight](https://github.com/cpaczek/skylight)
+1. ### [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)
 
-Project the aircraft passing overhead onto your ceiling in real time, from an RTL-SDR — with a live sky layer (sun, moon...
+AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a gro...
 
-? 2347  |  ?? TypeScript  |  _GitHub Search_  `ads-b` `aircraft` `art-installation` `flight-tracker` `projector`
+? 0  |  ?? Python  |  _GitHub Trending_  
 
-2. ### [b-nnett/goose](https://github.com/b-nnett/goose)
+2. ### [RyanCodrai/turbovec](https://github.com/RyanCodrai/turbovec)
 
-Goose Swift proof-of-concept README
+A vector index built on TurboQuant, written in Rust with Python bindings
 
-? 2307  |  ?? Rust  |  _GitHub Search_  
+? 0  |  ?? Python  |  _GitHub Trending_  
 
-3. ### [jd-opensource/JoyAI-Echo](https://github.com/jd-opensource/JoyAI-Echo)
+3. ### [google/skills](https://github.com/google/skills)
 
-JoyAI-Echo: Pushing the Frontier of Long Audio-Visual Generation
+Agent Skills for Google products and technologies
 
-? 1036  |  ?? Python  |  _GitHub Search_  
+? 0  |  ?? Python  |  _GitHub Trending_  
 
-4. ### [tastyeffectco/sandboxd](https://github.com/tastyeffectco/sandboxd)
+4. ### [refactoringhq/tolaria](https://github.com/refactoringhq/tolaria)
 
-Self-hosted dev sandboxes with preview URLs. One command. No Kubernetes, perfect for coding agents and Saas factories
+Desktop app to manage markdown knowledge bases
 
-? 512  |  ?? Go  |  _GitHub Search_  `ai` `ai-agent` `dev-environment` `docker` `isolation`
+? 0  |  ?? TypeScript  |  _GitHub Trending_  
 
-5. ### [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design)
+5. ### [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach)
 
-Run Claude Design locally as an Agent Skill — Cursor, Claude Code & more. Produce polished UI mockups, prototypes, decks...
+Give your AI agent eyes to see the entire internet. Read &amp; search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHo...
 
-? 497  |  ?? JavaScript  |  _GitHub Search_  `agent-skills` `claude` `claude-code` `claude-design` `cursor`
+? 0  |  ?? Python  |  _GitHub Trending_  
 
-6. ### [Jane-xiaoer/xiaoer-videolab](https://github.com/Jane-xiaoer/xiaoer-videolab)
+6. ### [sponsors/danielmiessler](https://github.com/sponsors/danielmiessler)
 
-One click on the toolbar grabs the current page's video into ~/Downloads — local yt-dlp daemon, 1800+ sites. 小耳抓视频：一键把当前...
+Agentic AI Infrastructure for magnifying HUMAN capabilities.
 
-? 480  |  ?? JavaScript  |  _GitHub Search_  `bilibili` `chrome-extension` `launchd` `macos` `manifest-v3`
+? 0  |  ?? TypeScript  |  _GitHub Trending_  
 
-7. ### [NoopApp/noop](https://github.com/NoopApp/noop)
+7. ### [sponsors/santifer](https://github.com/sponsors/santifer)
 
-Offline WHOOP companion — pair your strap over Bluetooth, keep all data on your own device. No cloud, no account, no sub...
+AI-powered job search system built on Claude Code. 14 skill modes, Go dashboard, PDF generation, batch processing.
 
-? 473  |  ?? Swift  |  _GitHub Search_  
+? 0  |  ?? JavaScript  |  _GitHub Trending_  
 
-8. ### [zenhosta/9drive](https://github.com/zenhosta/9drive)
+8. ### [phuryn/pm-skills](https://github.com/phuryn/pm-skills)
 
-9Drive is a storage gateway web app for connecting multiple Google Drive accounts into one virtual storage dashboard. Us...
+PM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and g...
 
-? 440  |  ?? TypeScript  |  _GitHub Search_  `drive` `gateway` `google` `storage`
+? 0  |  ?? N/A  |  _GitHub Trending_  
 
-9. ### [amElnagdy/guard-skills](https://github.com/amElnagdy/guard-skills)
+9. ### [openai/plugins](https://github.com/openai/plugins)
 
-Guard skills for coding agents, quality gates that catch AI-generated failure modes in code, tests, and docs
+OpenAI Plugins
 
-? 437  |  ?? N/A  |  _GitHub Search_  `agent-skills` `ai` `claude` `claude-code` `code-review`
+? 0  |  ?? JavaScript  |  _GitHub Trending_  
 
-10. ### [nevertoday/zhongguo-traditional-colors](https://github.com/nevertoday/zhongguo-traditional-colors)
+10. ### [Andyyyy64/whichllm](https://github.com/Andyyyy64/whichllm)
 
-中华传统色演示、色卡浏览与颜色知识科普开源项目
+Find the local LLM that actually runs and performs best on your hardware. Ranked by real, recency-aware benchmarks, not ...
 
-? 431  |  ?? JavaScript  |  _GitHub Search_  
+? 0  |  ?? Python  |  _GitHub Trending_  
 
 ---
 
 ## Hacker News Top Posts
 
-- [MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second](https://mimo.xiaomi.com/blog/mimo-tilert-1000tps)  ?80  by _gainsurier_
-- [Show HN: Performative-UI – a react component library of design tropes](https://vorpus.github.io/performativeUI/)  ?228  by _lizhang_
-- [Launch HN: Intuned (YC S22) – Build and run reliable browser automations as code](https://intunedhq.com)  ?66  by _fkilaiwi_
+- [MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second](https://mimo.xiaomi.com/blog/mimo-tilert-1000tps)  ?93  by _gainsurier_
+- [Show HN: Performative-UI – a react component library of design tropes](https://vorpus.github.io/performativeUI/)  ?237  by _lizhang_
+- [Launch HN: Intuned (YC S22) – Build and run reliable browser automations as code](https://intunedhq.com)  ?67  by _fkilaiwi_
 - [Zig by Example](https://github.com/boringcollege/zig-by-example)  ?149  by _dariubs_
-- [Anti-social: It's fads, not friends, which now dominate social media feeds](https://www.bbc.com/worklife/article/20260520-how-social-media-ceased-to-be-social)  ?254  by _1vuio0pswjnm7_
+- [Anti-social: It's fads, not friends, which now dominate social media feeds](https://www.bbc.com/worklife/article/20260520-how-social-media-ceased-to-be-social)  ?262  by _1vuio0pswjnm7_
 
 ---
 
