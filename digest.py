@@ -208,6 +208,8 @@ def build_digest(repos, hn_posts):
         a("")
         a("## Hot GitHub Repos")
         a("")
+        a("> Tips: New repos from the last 7 days with fastest star growth. Browse to discover trending tools and projects.")
+        a("")
         for i, r in enumerate(repos, 1):
             a(f"{i}. {fmt_repo_badge(r)}")
     # ?? Hacker News ??
@@ -216,6 +218,8 @@ def build_digest(repos, hn_posts):
         a("")
         a("## Hacker News Top Posts")
         a("")
+        a("> Tips: Top discussions from Hacker News. Covers tech trends, new tools, and hot topics.")
+        a("")
         for p in hn_posts:
             a(fmt_hn_post(p))
         a("")
@@ -223,6 +227,8 @@ def build_digest(repos, hn_posts):
     a("---")
     a("")
     a("## Useful Codex Skills")
+    a("")
+    a("> Tips: Codex Skills are reusable AI guides. Install: codex install <skill-name>")
     a("")
     a("| Skill | Description |")
     a("|-------|-------------|")
@@ -234,6 +240,8 @@ def build_digest(repos, hn_posts):
     a("")
     a("## Codex Learning Resources")
     a("")
+    a("> Tips: Curated guides for AI coding agents. Start with Karpathy Guidelines.")
+    a("")
     for title, desc in COLLECTED_ARTICLES:
         a(f"- **{title}** - {desc}")
     a("")
@@ -241,6 +249,8 @@ def build_digest(repos, hn_posts):
     a("---")
     a("")
     a("## Useful Links")
+    a("")
+    a("> Tips: Quick-access links for daily development.")
     a("")
     for title, url in [
         ("Codex GitHub", "https://github.com/openai/codex"),
@@ -254,6 +264,8 @@ def build_digest(repos, hn_posts):
     a("---")
     a("")
     a("## Quick Commands")
+    a("")
+    a("> Tips: Generate digests and start the dashboard. Schedule daily via Task Scheduler or GitHub Actions.")
     a("")
     BT = chr(96) * 3
     a(BT)
@@ -441,3 +453,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

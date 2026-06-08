@@ -1,0 +1,145 @@
+# My Daily Digest - 2026-06-09
+
+> Sources: GitHub Search, GitHub Trending, Hacker News
+
+---
+
+## Hot GitHub Repos
+
+> Tips: New repos from the last 7 days with fastest star growth. Browse to discover trending tools and projects.
+
+1. ### [tastyeffectco/sandboxd](https://github.com/tastyeffectco/sandboxd)
+
+Self-hosted dev sandboxes with preview URLs. One command. No Kubernetes, perfect for coding agents and Saas factories
+
+? 512  |  ?? Go  |  _GitHub Search_  `ai` `ai-agent` `dev-environment` `docker` `isolation`
+
+2. ### [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design)
+
+Run Claude Design locally as an Agent Skill — Cursor, Claude Code & more. Produce polished UI mockups, prototypes, decks...
+
+? 500  |  ?? JavaScript  |  _GitHub Search_  `agent-skills` `claude` `claude-code` `claude-design` `cursor`
+
+3. ### [NoopApp/noop](https://github.com/NoopApp/noop)
+
+Offline WHOOP companion — pair your strap over Bluetooth, keep all data on your own device. No cloud, no account, no sub...
+
+? 485  |  ?? Swift  |  _GitHub Search_  
+
+4. ### [Jane-xiaoer/xiaoer-videolab](https://github.com/Jane-xiaoer/xiaoer-videolab)
+
+One click on the toolbar grabs the current page's video into ~/Downloads — local yt-dlp daemon, 1800+ sites. 小耳抓视频：一键把当前...
+
+? 481  |  ?? JavaScript  |  _GitHub Search_  `bilibili` `chrome-extension` `launchd` `macos` `manifest-v3`
+
+5. ### [zenhosta/9drive](https://github.com/zenhosta/9drive)
+
+9Drive is a storage gateway web app for connecting multiple Google Drive accounts into one virtual storage dashboard. Us...
+
+? 441  |  ?? TypeScript  |  _GitHub Search_  `drive` `gateway` `google` `storage`
+
+6. ### [amElnagdy/guard-skills](https://github.com/amElnagdy/guard-skills)
+
+Guard skills for coding agents, quality gates that catch AI-generated failure modes in code, tests, and docs
+
+? 440  |  ?? N/A  |  _GitHub Search_  `agent-skills` `ai` `claude` `claude-code` `code-review`
+
+7. ### [nevertoday/zhongguo-traditional-colors](https://github.com/nevertoday/zhongguo-traditional-colors)
+
+中华传统色演示、色卡浏览与颜色知识科普开源项目
+
+? 431  |  ?? JavaScript  |  _GitHub Search_  
+
+8. ### [jeff141/meatshell](https://github.com/jeff141/meatshell)
+
+一个轻量级、低内存占用的 SSH / 终端客户端（A lightweight, low-memory SSH / terminal client）
+
+? 417  |  ?? Rust  |  _GitHub Search_  
+
+9. ### [wy51ai/edulab](https://github.com/wy51ai/edulab)
+
+(no description)
+
+? 395  |  ?? HTML  |  _GitHub Search_  
+
+10. ### [mysk-research/loupe](https://github.com/mysk-research/loupe)
+
+A privacy-focused iOS app that raises awareness about what native apps can see
+
+? 343  |  ?? N/A  |  _GitHub Search_  
+
+---
+
+## Hacker News Top Posts
+
+> Tips: Top discussions from Hacker News. Covers tech trends, new tools, and hot topics.
+
+- [Show HN: Performative-UI – a react component library of design tropes](https://vorpus.github.io/performativeUI/)  ?289  by _lizhang_
+- [MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second](https://mimo.xiaomi.com/blog/mimo-tilert-1000tps)  ?176  by _gainsurier_
+- [Launch HN: Intuned (YC S22) – Build and run reliable browser automations as code](https://intunedhq.com)  ?78  by _fkilaiwi_
+- [Anti-social: It's fads, not friends, which now dominate social media feeds](https://www.bbc.com/worklife/article/20260520-how-social-media-ceased-to-be-social)  ?300  by _1vuio0pswjnm7_
+- [Zig by Example](https://github.com/boringcollege/zig-by-example)  ?167  by _dariubs_
+
+---
+
+## Useful Codex Skills
+
+> Tips: Codex Skills are reusable AI guides. Install: codex install <skill-name>
+
+| Skill | Description |
+|-------|-------------|
+| `build-web-apps` | Frontend app builder - Build frontend apps with AI |
+| `agent-browser` | Browser automation CLI |
+| `figma` | Figma design to code workflow |
+| `notion-knowledge-capture` | Capture conversations into structured Notion pages |
+| `yeet` | One-click Stage-Commit-Push-PR workflow |
+| `gh-fix-ci` | Debug GitHub Actions CI failures |
+| `mcp-builder` | Guide for creating high-quality MCP Servers |
+| `diagnose` | Structured debugging loop for hard-to-reproduce bugs |
+| `codebase-migrate` | Large-scale codebase migration / multi-file refactoring |
+| `transcribe` | Transcribe audio to text with speaker diarization |
+
+---
+
+## Codex Learning Resources
+
+> Tips: Curated guides for AI coding agents. Start with Karpathy Guidelines.
+
+- **Karpathy Coding Guidelines** - Reduce common LLM coding mistakes, emphasizing simplicity and precision
+- **Using-Superpowers** - Checklist before starting long tasks
+- **AGENTS.md Spec** - Repository-level instruction files guiding AI agent behavior
+- **Skill-Creator Workflow** - Encapsulate repeated workflows as reusable Skills
+
+---
+
+## Useful Links
+
+> Tips: Quick-access links for daily development.
+
+- [Codex GitHub](https://github.com/openai/codex)
+- [OpenAI Docs](https://platform.openai.com/docs)
+- [GitHub Trending](https://github.com/trending)
+- [Hacker News](https://news.ycombinator.com)
+
+---
+
+## Quick Commands
+
+> Tips: Generate digests and start the dashboard. Schedule daily via Task Scheduler or GitHub Actions.
+
+```
+# Generate digest
+python digest.py
+
+# Start dashboard server
+python digest.py --serve
+
+# Open dashboard
+http://localhost:8080
+```
+
+---
+
+## Notes
+
+> (write your notes here)
