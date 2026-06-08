@@ -206,9 +206,9 @@ def build_digest(repos, hn_posts):
     if repos:
         a("---")
         a("")
-        a("## Hot GitHub Repos")
+        a("## GitHub 热门开源项目")
         a("")
-        a("> Tips: New repos from the last 7 days with fastest star growth. Browse to discover trending tools and projects.")
+        a("> 说明：近7天新创建的 GitHub 仓库，按 Star 增长速度排名。适合发现新兴工具、热门框架和有趣的开源项目。")
         a("")
         for i, r in enumerate(repos, 1):
             a(f"{i}. {fmt_repo_badge(r)}")
@@ -216,9 +216,9 @@ def build_digest(repos, hn_posts):
     if hn_posts:
         a("---")
         a("")
-        a("## Hacker News Top Posts")
+        a("## Hacker News 热门讨论")
         a("")
-        a("> Tips: Top discussions from Hacker News. Covers tech trends, new tools, and hot topics.")
+        a("> 说明：Hacker News 社区当前最热的讨论帖，涉及技术趋势、新工具发布和程序员热点话题。")
         a("")
         for p in hn_posts:
             a(fmt_hn_post(p))
@@ -226,21 +226,21 @@ def build_digest(repos, hn_posts):
     # ?? Skills ??
     a("---")
     a("")
-    a("## Useful Codex Skills")
+    a("## Codex 实用 Skills")
     a("")
-    a("> Tips: Codex Skills are reusable AI guides. Install: codex install <skill-name>")
+    a("> 说明：Codex Skills 是可复用的 AI 行为指南，安装后可在对话中直接调用。安装：codex install <skill-name>")
     a("")
-    a("| Skill | Description |")
-    a("|-------|-------------|")
+    a("| Skill | 能干什么 |")
+    a("|-------|----------|")
     for name, desc in COLLECTED_SKILLS:
         a(f"| `{name}` | {desc} |")
     a("")
     # ?? Resources ??
     a("---")
     a("")
-    a("## Codex Learning Resources")
+    a("## Codex 学习资料")
     a("")
-    a("> Tips: Curated guides for AI coding agents. Start with Karpathy Guidelines.")
+    a("> 说明：Codex 学习资料汇总。建议从 Karpathy 编码准则开始读，它能帮你写出更简洁、更可靠的代码。")
     a("")
     for title, desc in COLLECTED_ARTICLES:
         a(f"- **{title}** - {desc}")
@@ -248,9 +248,9 @@ def build_digest(repos, hn_posts):
     # ?? Links ??
     a("---")
     a("")
-    a("## Useful Links")
+    a("## 常用链接")
     a("")
-    a("> Tips: Quick-access links for daily development.")
+    a("> 说明：日常开发常用工具和社区入口。")
     a("")
     for title, url in [
         ("Codex GitHub", "https://github.com/openai/codex"),
@@ -263,9 +263,9 @@ def build_digest(repos, hn_posts):
     # ?? Commands ??
     a("---")
     a("")
-    a("## Quick Commands")
+    a("## 常用命令")
     a("")
-    a("> Tips: Generate digests and start the dashboard. Schedule daily via Task Scheduler or GitHub Actions.")
+    a("> 说明：本项目相关命令速查。可将 python digest.py 加到定时任务或 GitHub Actions 实现每日自动生成。")
     a("")
     BT = chr(96) * 3
     a(BT)

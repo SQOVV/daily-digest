@@ -4,27 +4,27 @@
 
 ---
 
-## Hot GitHub Repos
+## GitHub 热门开源项目
 
-> Tips: New repos from the last 7 days with fastest star growth. Browse to discover trending tools and projects.
+> 说明：近7天新创建的 GitHub 仓库，按 Star 增长速度排名。适合发现新兴工具、热门框架和有趣的开源项目。
 
 1. ### [tastyeffectco/sandboxd](https://github.com/tastyeffectco/sandboxd)
 
 Self-hosted dev sandboxes with preview URLs. One command. No Kubernetes, perfect for coding agents and Saas factories
 
-? 512  |  ?? Go  |  _GitHub Search_  `ai` `ai-agent` `dev-environment` `docker` `isolation`
+? 513  |  ?? Go  |  _GitHub Search_  `ai` `ai-agent` `dev-environment` `docker` `isolation`
 
 2. ### [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design)
 
 Run Claude Design locally as an Agent Skill — Cursor, Claude Code & more. Produce polished UI mockups, prototypes, decks...
 
-? 500  |  ?? JavaScript  |  _GitHub Search_  `agent-skills` `claude` `claude-code` `claude-design` `cursor`
+? 504  |  ?? JavaScript  |  _GitHub Search_  `agent-skills` `claude` `claude-code` `claude-design` `cursor`
 
 3. ### [NoopApp/noop](https://github.com/NoopApp/noop)
 
 Offline WHOOP companion — pair your strap over Bluetooth, keep all data on your own device. No cloud, no account, no sub...
 
-? 485  |  ?? Swift  |  _GitHub Search_  
+? 497  |  ?? Swift  |  _GitHub Search_  
 
 4. ### [Jane-xiaoer/xiaoer-videolab](https://github.com/Jane-xiaoer/xiaoer-videolab)
 
@@ -32,62 +32,62 @@ One click on the toolbar grabs the current page's video into ~/Downloads — loc
 
 ? 481  |  ?? JavaScript  |  _GitHub Search_  `bilibili` `chrome-extension` `launchd` `macos` `manifest-v3`
 
-5. ### [zenhosta/9drive](https://github.com/zenhosta/9drive)
-
-9Drive is a storage gateway web app for connecting multiple Google Drive accounts into one virtual storage dashboard. Us...
-
-? 441  |  ?? TypeScript  |  _GitHub Search_  `drive` `gateway` `google` `storage`
-
-6. ### [amElnagdy/guard-skills](https://github.com/amElnagdy/guard-skills)
+5. ### [amElnagdy/guard-skills](https://github.com/amElnagdy/guard-skills)
 
 Guard skills for coding agents, quality gates that catch AI-generated failure modes in code, tests, and docs
 
-? 440  |  ?? N/A  |  _GitHub Search_  `agent-skills` `ai` `claude` `claude-code` `code-review`
+? 445  |  ?? N/A  |  _GitHub Search_  `agent-skills` `ai` `claude` `claude-code` `code-review`
+
+6. ### [zenhosta/9drive](https://github.com/zenhosta/9drive)
+
+9Drive is a storage gateway web app for connecting multiple Google Drive accounts into one virtual storage dashboard. Us...
+
+? 443  |  ?? TypeScript  |  _GitHub Search_  `drive` `gateway` `google` `storage`
 
 7. ### [nevertoday/zhongguo-traditional-colors](https://github.com/nevertoday/zhongguo-traditional-colors)
 
 中华传统色演示、色卡浏览与颜色知识科普开源项目
 
-? 431  |  ?? JavaScript  |  _GitHub Search_  
+? 432  |  ?? JavaScript  |  _GitHub Search_  
 
 8. ### [jeff141/meatshell](https://github.com/jeff141/meatshell)
 
 一个轻量级、低内存占用的 SSH / 终端客户端（A lightweight, low-memory SSH / terminal client）
 
-? 417  |  ?? Rust  |  _GitHub Search_  
+? 420  |  ?? Rust  |  _GitHub Search_  
 
 9. ### [wy51ai/edulab](https://github.com/wy51ai/edulab)
 
 (no description)
 
-? 395  |  ?? HTML  |  _GitHub Search_  
+? 397  |  ?? HTML  |  _GitHub Search_  
 
-10. ### [mysk-research/loupe](https://github.com/mysk-research/loupe)
+10. ### [GordenSun/GordenSuperPPTSkills](https://github.com/GordenSun/GordenSuperPPTSkills)
 
-A privacy-focused iOS app that raises awareness about what native apps can see
+AI PPT赛道终结者，史上最最最强 PPT Skill！！！  使用GPT生成豪华的图片格式PPT，然后转换为完全可编辑的PPTX文件。
 
-? 343  |  ?? N/A  |  _GitHub Search_  
-
----
-
-## Hacker News Top Posts
-
-> Tips: Top discussions from Hacker News. Covers tech trends, new tools, and hot topics.
-
-- [Show HN: Performative-UI – a react component library of design tropes](https://vorpus.github.io/performativeUI/)  ?289  by _lizhang_
-- [MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second](https://mimo.xiaomi.com/blog/mimo-tilert-1000tps)  ?176  by _gainsurier_
-- [Launch HN: Intuned (YC S22) – Build and run reliable browser automations as code](https://intunedhq.com)  ?78  by _fkilaiwi_
-- [Anti-social: It's fads, not friends, which now dominate social media feeds](https://www.bbc.com/worklife/article/20260520-how-social-media-ceased-to-be-social)  ?300  by _1vuio0pswjnm7_
-- [Zig by Example](https://github.com/boringcollege/zig-by-example)  ?167  by _dariubs_
+? 348  |  ?? Python  |  _GitHub Search_  
 
 ---
 
-## Useful Codex Skills
+## Hacker News 热门讨论
 
-> Tips: Codex Skills are reusable AI guides. Install: codex install <skill-name>
+> 说明：Hacker News 社区当前最热的讨论帖，涉及技术趋势、新工具发布和程序员热点话题。
 
-| Skill | Description |
-|-------|-------------|
+- [MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second](https://mimo.xiaomi.com/blog/mimo-tilert-1000tps)  ?278  by _gainsurier_
+- [Show HN: Performative-UI – a react component library of design tropes](https://vorpus.github.io/performativeUI/)  ?461  by _lizhang_
+- [Stop the Apple Music app from launching](https://lowtechguys.com/musicdecoy/)  ?113  by _bobbiechen_
+- [Anti-social: It's fads, not friends, which now dominate social media feeds](https://www.bbc.com/worklife/article/20260520-how-social-media-ceased-to-be-social)  ?353  by _1vuio0pswjnm7_
+- [Full Reverse Engineering of the TI-84 Plus Operating System](https://siraben.github.io/ti84p-re/)  ?19  by _siraben_
+
+---
+
+## Codex 实用 Skills
+
+> 说明：Codex Skills 是可复用的 AI 行为指南，安装后可在对话中直接调用。安装：codex install <skill-name>
+
+| Skill | 能干什么 |
+|-------|----------|
 | `build-web-apps` | Frontend app builder - Build frontend apps with AI |
 | `agent-browser` | Browser automation CLI |
 | `figma` | Figma design to code workflow |
@@ -101,9 +101,9 @@ A privacy-focused iOS app that raises awareness about what native apps can see
 
 ---
 
-## Codex Learning Resources
+## Codex 学习资料
 
-> Tips: Curated guides for AI coding agents. Start with Karpathy Guidelines.
+> 说明：Codex 学习资料汇总。建议从 Karpathy 编码准则开始读，它能帮你写出更简洁、更可靠的代码。
 
 - **Karpathy Coding Guidelines** - Reduce common LLM coding mistakes, emphasizing simplicity and precision
 - **Using-Superpowers** - Checklist before starting long tasks
@@ -112,9 +112,9 @@ A privacy-focused iOS app that raises awareness about what native apps can see
 
 ---
 
-## Useful Links
+## 常用链接
 
-> Tips: Quick-access links for daily development.
+> 说明：日常开发常用工具和社区入口。
 
 - [Codex GitHub](https://github.com/openai/codex)
 - [OpenAI Docs](https://platform.openai.com/docs)
@@ -123,9 +123,9 @@ A privacy-focused iOS app that raises awareness about what native apps can see
 
 ---
 
-## Quick Commands
+## 常用命令
 
-> Tips: Generate digests and start the dashboard. Schedule daily via Task Scheduler or GitHub Actions.
+> 说明：本项目相关命令速查。可将 python digest.py 加到定时任务或 GitHub Actions 实现每日自动生成。
 
 ```
 # Generate digest
