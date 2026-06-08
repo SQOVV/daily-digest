@@ -6,23 +6,25 @@
 
 ## Hot GitHub Repos
 
+> Tips: New repos from the last 7 days with fastest star growth. Browse to discover trending tools and projects.
+
 1. ### [cpaczek/skylight](https://github.com/cpaczek/skylight)
 
 Project the aircraft passing overhead onto your ceiling in real time, from an RTL-SDR — with a live sky layer (sun, moon...
 
-? 2348  |  ?? TypeScript  |  _GitHub Search_  `ads-b` `aircraft` `art-installation` `flight-tracker` `projector`
+? 2351  |  ?? TypeScript  |  _GitHub Search_  `ads-b` `aircraft` `art-installation` `flight-tracker` `projector`
 
 2. ### [b-nnett/goose](https://github.com/b-nnett/goose)
 
 Goose Swift proof-of-concept README
 
-? 2307  |  ?? Rust  |  _GitHub Search_  
+? 2309  |  ?? Rust  |  _GitHub Search_  
 
 3. ### [jd-opensource/JoyAI-Echo](https://github.com/jd-opensource/JoyAI-Echo)
 
 JoyAI-Echo: Pushing the Frontier of Long Audio-Visual Generation
 
-? 1037  |  ?? Python  |  _GitHub Search_  
+? 1042  |  ?? Python  |  _GitHub Search_  
 
 4. ### [tastyeffectco/sandboxd](https://github.com/tastyeffectco/sandboxd)
 
@@ -34,19 +36,19 @@ Self-hosted dev sandboxes with preview URLs. One command. No Kubernetes, perfect
 
 Run Claude Design locally as an Agent Skill — Cursor, Claude Code & more. Produce polished UI mockups, prototypes, decks...
 
-? 498  |  ?? JavaScript  |  _GitHub Search_  `agent-skills` `claude` `claude-code` `claude-design` `cursor`
+? 500  |  ?? JavaScript  |  _GitHub Search_  `agent-skills` `claude` `claude-code` `claude-design` `cursor`
 
-6. ### [Jane-xiaoer/xiaoer-videolab](https://github.com/Jane-xiaoer/xiaoer-videolab)
+6. ### [NoopApp/noop](https://github.com/NoopApp/noop)
+
+Offline WHOOP companion — pair your strap over Bluetooth, keep all data on your own device. No cloud, no account, no sub...
+
+? 485  |  ?? Swift  |  _GitHub Search_  
+
+7. ### [Jane-xiaoer/xiaoer-videolab](https://github.com/Jane-xiaoer/xiaoer-videolab)
 
 One click on the toolbar grabs the current page's video into ~/Downloads — local yt-dlp daemon, 1800+ sites. 小耳抓视频：一键把当前...
 
 ? 481  |  ?? JavaScript  |  _GitHub Search_  `bilibili` `chrome-extension` `launchd` `macos` `manifest-v3`
-
-7. ### [NoopApp/noop](https://github.com/NoopApp/noop)
-
-Offline WHOOP companion — pair your strap over Bluetooth, keep all data on your own device. No cloud, no account, no sub...
-
-? 475  |  ?? Swift  |  _GitHub Search_  
 
 8. ### [zenhosta/9drive](https://github.com/zenhosta/9drive)
 
@@ -58,7 +60,7 @@ Offline WHOOP companion — pair your strap over Bluetooth, keep all data on you
 
 Guard skills for coding agents, quality gates that catch AI-generated failure modes in code, tests, and docs
 
-? 437  |  ?? N/A  |  _GitHub Search_  `agent-skills` `ai` `claude` `claude-code` `code-review`
+? 440  |  ?? N/A  |  _GitHub Search_  `agent-skills` `ai` `claude` `claude-code` `code-review`
 
 10. ### [nevertoday/zhongguo-traditional-colors](https://github.com/nevertoday/zhongguo-traditional-colors)
 
@@ -70,15 +72,19 @@ Guard skills for coding agents, quality gates that catch AI-generated failure mo
 
 ## Hacker News Top Posts
 
-- [MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second](https://mimo.xiaomi.com/blog/mimo-tilert-1000tps)  ?114  by _gainsurier_
-- [Show HN: Performative-UI – a react component library of design tropes](https://vorpus.github.io/performativeUI/)  ?251  by _lizhang_
-- [Launch HN: Intuned (YC S22) – Build and run reliable browser automations as code](https://intunedhq.com)  ?69  by _fkilaiwi_
-- [Anti-social: It's fads, not friends, which now dominate social media feeds](https://www.bbc.com/worklife/article/20260520-how-social-media-ceased-to-be-social)  ?272  by _1vuio0pswjnm7_
-- [Zig by Example](https://github.com/boringcollege/zig-by-example)  ?152  by _dariubs_
+> Tips: Top discussions from Hacker News. Covers tech trends, new tools, and hot topics.
+
+- [Show HN: Performative-UI – a react component library of design tropes](https://vorpus.github.io/performativeUI/)  ?291  by _lizhang_
+- [MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second](https://mimo.xiaomi.com/blog/mimo-tilert-1000tps)  ?179  by _gainsurier_
+- [Launch HN: Intuned (YC S22) – Build and run reliable browser automations as code](https://intunedhq.com)  ?78  by _fkilaiwi_
+- [Anti-social: It's fads, not friends, which now dominate social media feeds](https://www.bbc.com/worklife/article/20260520-how-social-media-ceased-to-be-social)  ?300  by _1vuio0pswjnm7_
+- [Zig by Example](https://github.com/boringcollege/zig-by-example)  ?168  by _dariubs_
 
 ---
 
 ## Useful Codex Skills
+
+> Tips: Codex Skills are reusable AI guides. Install: codex install <skill-name>
 
 | Skill | Description |
 |-------|-------------|
@@ -97,6 +103,8 @@ Guard skills for coding agents, quality gates that catch AI-generated failure mo
 
 ## Codex Learning Resources
 
+> Tips: Curated guides for AI coding agents. Start with Karpathy Guidelines.
+
 - **Karpathy Coding Guidelines** - Reduce common LLM coding mistakes, emphasizing simplicity and precision
 - **Using-Superpowers** - Checklist before starting long tasks
 - **AGENTS.md Spec** - Repository-level instruction files guiding AI agent behavior
@@ -106,6 +114,8 @@ Guard skills for coding agents, quality gates that catch AI-generated failure mo
 
 ## Useful Links
 
+> Tips: Quick-access links for daily development.
+
 - [Codex GitHub](https://github.com/openai/codex)
 - [OpenAI Docs](https://platform.openai.com/docs)
 - [GitHub Trending](https://github.com/trending)
@@ -114,6 +124,8 @@ Guard skills for coding agents, quality gates that catch AI-generated failure mo
 ---
 
 ## Quick Commands
+
+> Tips: Generate digests and start the dashboard. Schedule daily via Task Scheduler or GitHub Actions.
 
 ```
 # Generate digest
